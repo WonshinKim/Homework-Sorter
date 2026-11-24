@@ -58,7 +58,7 @@ How to actually run the thing, with examples.
 Features you haven't built yet but plan to (pull these from your
 "Schedule" quadrant in the Eisenhower Matrix).
 
-- [ ]List importance level of each homework next to each entry
+- [ ] List importance level of each homework next to each entry
 - [ ] Rewrite csv or txt file when changes are made
 - [ ] Enable MVP to clear out completed homework when asked to
 - [ ] Receive individual new entries for new homework assignments
