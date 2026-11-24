@@ -1,5 +1,6 @@
 // import statements here...
 import java.util.Scanner;
+import java.util.ArrayList;
 import java.time.LocalDate;
 import java.time.format.DateTimeParseException;
 
@@ -18,6 +19,7 @@ public class HomeworkSorter {
         String[] parts;
         String hwName;
         LocalDate hwDate;
+        ArrayList<String> entries = new ArrayList<>();
         System.out.println("\nWelcome to Homework Sorter!");
         while (!done) {
             Scanner scan = new Scanner(System.in);
@@ -36,6 +38,28 @@ public class HomeworkSorter {
                     System.out.println("\ndate conversion is a success!");
                     System.out.printf("homework title: %s\n", hwName);
                     System.out.printf("date: %s\n\n", hwDate);
+                    if (entries.isEmpty()) {
+                        entries.add(input);
+                    } else {
+                        int insertionIndex = 0;
+                        for (String entry : entries) {
+                            String[] pieces = entry.split(" ");
+                            LocalDate entryDate = LocalDate.parse(pieces[1]);
+                            if (hwDate.isAfter(entryDate)) {
+                                insertionIndex++;
+                            }
+                        }
+                        entries.add(insertionIndex, input);
+                    }
+
+                    System.out.println("arraylist: ");
+
+                    for (String en : entries) {
+                        System.out.println(en);
+                    }
+
+                    System.out.println("\n");
+
                 } catch (DateTimeParseException d) {
                     System.out.println("\ninvalid input format (use a title with no spaces, a single space, and a date with a " +
                             "yyyy-mm-dd format { ex. MathHomework1 2027-01-01 } )");
