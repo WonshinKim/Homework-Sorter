@@ -38,19 +38,7 @@ public class HomeworkSorter {
                     System.out.println("\ndate conversion is a success!");
                     System.out.printf("homework title: %s\n", hwName);
                     System.out.printf("date: %s\n\n", hwDate);
-                    if (entries.isEmpty()) {
-                        entries.add(input);
-                    } else {
-                        int insertionIndex = 0;
-                        for (String entry : entries) {
-                            String[] pieces = entry.split(" ");
-                            LocalDate entryDate = LocalDate.parse(pieces[1]);
-                            if (hwDate.isAfter(entryDate)) {
-                                insertionIndex++;
-                            }
-                        }
-                        entries.add(insertionIndex, input);
-                    }
+                    sorter(entries, input);
 
                     System.out.println("arraylist: ");
 
@@ -72,6 +60,24 @@ public class HomeworkSorter {
                     }
                 }
             }
+        }
+    }
+
+    public static void sorter(ArrayList<String> list, String newEntry) {
+        if (list.isEmpty()) {
+            list.add(newEntry);
+        } else {
+            int insertionIndex = 0;
+            String[] slices = newEntry.split(" ");
+            LocalDate newDate = LocalDate.parse(slices[1]);
+            for (String entry : list) {
+                String[] pieces = entry.split(" ");
+                LocalDate entryDate = LocalDate.parse(pieces[1]);
+                if (newDate.isAfter(entryDate)) {
+                    insertionIndex++;
+                }
+            }
+            list.add(insertionIndex, newEntry);
         }
     }
 }
