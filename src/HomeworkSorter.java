@@ -3,6 +3,9 @@ import java.util.Scanner;
 import java.util.ArrayList;
 import java.time.LocalDate;
 import java.time.format.DateTimeParseException;
+import java.io.PrintWriter;
+import java.io.FileOutputStream;
+import java.io.IOException;
 
 /**
  * Homework Sorter (for CS 193 Final Project) -
@@ -29,6 +32,12 @@ public class HomeworkSorter {
             String input = scan.nextLine();
             if (input.equals("done")) {
                 done = true;
+                try {
+                    makeFile(entries, "HomeworkList.csv");
+                } catch (IOException io) {
+                    System.out.println("error in creating file");
+                }
+                System.out.println("\nYour homework entries are in file: HomeworkList.csv");
                 System.out.println("\nThank you for using Homework Sorter!");
             } else {
                 try {
@@ -78,6 +87,14 @@ public class HomeworkSorter {
                 }
             }
             list.add(insertionIndex, newEntry);
+        }
+    }
+
+    public static void makeFile(ArrayList<String> list, String fileName) throws IOException {
+        try (PrintWriter pw = new PrintWriter(new FileOutputStream(fileName))) {
+            for (String entry : list) {
+                pw.println(entry);
+            }
         }
     }
 }
