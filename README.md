@@ -69,7 +69,6 @@ enter peek to take a look at the list before you're done
 
 (input from keyboard) EnglishEssay 2026-12-16
 
-
 (again asks for input)
 
 (input) Essay2027-01-01
@@ -92,9 +91,11 @@ invalid input format (use a title with no spaces, a single space, and a date wit
 
 Project1 2027-01-01
 
-(shows success)
+(asks for input)
 
-arraylist:
+(input) peek
+
+list of homework entries:
 EnglishEssay 2026-12-16
 Project1 2027-01-01
 
@@ -102,24 +103,17 @@ Project1 2027-01-01
 
 MathHomework1 2026-12-20
 
-(shows success)
-
-arraylist:
-EnglishEssay 2026-12-16
-MathHomework1 2026-12-20
-Project1 2027-01-01
-
 (asks for input) 
 
 (input) done
 
-Your homework entries are in file: HomeworkList.csv
+Your homework entries are in file: HomeworkList.txt
 
 Thank you for using Homework Sorter!
 (program ends)
 
 (now do this to see the file:)
-vim HomeworkList.csv
+vim HomeworkList.txt
 
 (the file should show this:)
 EnglishEssay 2026-12-16

@@ -45,7 +45,7 @@ public class HomeworkSorter {
 	        System.out.println("enter 'peek' to take a look at the list before you're done");
             System.out.println("(or enter 'done' when you are done entering homework entries)\n");
             String input = scan.nextLine();
-            if (input.equals("done")) {  // when done, loop ends and ArrayList is copied into csv file
+            if (input.equals("done")) {  // when done, loop ends and ArrayList is copied into txt file
                 done = true;
                 try {
                     makeFile(entries, "HomeworkList.txt");  // method to convert list into file
