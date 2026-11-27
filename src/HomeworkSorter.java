@@ -22,6 +22,8 @@ import java.io.IOException;
  * types "done", the program will convert the ArrayList into a csv file that will be
  * visible to the user inside the src file. After the csv file is created, the program
  * will tell the user the file's name and then print the goodbye message.
+ * - Added feature: when user enters "peek", program will show the list to allow the user
+ * to check if list appears as intended.
  *
  * @author Wonshin Kim
  *
@@ -42,6 +44,7 @@ public class HomeworkSorter {
             System.out.println("Enter a homework title (no spaces in title), a space," +
                     "  and a due date with format yyyy-mm-dd");
             System.out.println("Example: 'EnglishEssay 2026-03-30'");
+	    System.out.println("enter 'peek' to take a look at the list before you're done");
             System.out.println("(or enter 'done' when you are done entering homework entries)\n");
             String input = scan.nextLine();
             if (input.equals("done")) {  // when done, loop ends and ArrayList is copied into csv file
@@ -53,29 +56,20 @@ public class HomeworkSorter {
                 }
                 System.out.println("\nYour homework entries are in file: HomeworkList.csv");
                 System.out.println("\nThank you for using Homework Sorter!");
-            } else {
+            } else if (input.equals("peek")) {  // shows list
+		System.out.println("\nlist of homework entries:");
+		for (String en: entries) {
+		    System.out.println(en);
+		}
+		System.out.println("\n");	
+	    } else {
                 try {
                     parts = input.split(" ");  // splits entry into its parts
                     hwName = parts[0];  // name should be the first part
                     hwDate = LocalDate.parse(parts[1]);  // second part is converted to a date
 
-                    // lines 66-68, 71-77: these are to show if the program successfully processes
-                    // the input. I wasn't originally planning to keep these, but these lines
-                    // are so helpful for showing whether the program works
-                    // that I'll include them in the MVP. (I might remove it for v 2.0)
-
-                    System.out.println("\ndate conversion is a success!");
-                    System.out.printf("homework title: %s\n", hwName);
-                    System.out.printf("date: %s\n\n", hwDate);
                     sorter(entries, input);         // method to add each entry in its proper place in ArrayList
-
-                    System.out.println("arraylist: ");
-
-                    for (String en : entries) {
-                        System.out.println(en);
-                    }
-
-                    System.out.println("\n");
+		    System.out.println("\n");
 
                 } catch (DateTimeParseException d) {  // if time conversion fails:
                     System.out.println("\ninvalid input format (use a title with no spaces, a single space, " +
