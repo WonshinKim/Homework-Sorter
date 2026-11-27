@@ -22,7 +22,9 @@ custom-made file-writer method).
 End of program.
 note: there are print statements used to make the program more user-friendly
 
-![System diagram](HomeworkSorter Diagram.drawio.png)
+![System diagram (works locally)](HomeworkSorter Diagram.drawio.png)
+
+![[System diagram](HomeworkSorter Diagram.drawio.png)](https://github.com/WonshinKim/Homework-Sorter/blob/main/HomeworkSorter%20Diagram.drawio.png)
 
 ## Tech Stack
 
