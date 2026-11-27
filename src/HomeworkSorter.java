@@ -8,7 +8,7 @@ import java.io.IOException;
 // note: java.time uses Java 8 version; all other features can be used by older versions
 
 /**
- * Homework Sorter (for CS 193 Final Project) -
+ * Homework Sorter (v 2.0) (for CS 193 Final Project) -
  * This program helps me sort out my homework assignments by their due dates,
  * placing the entries with earlier deadlines on top. First, the program displays
  * a welcome message. Then, the program enters into a loop where the program keeps
