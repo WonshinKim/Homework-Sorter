@@ -19,57 +19,54 @@ import java.io.IOException;
  * the entry cannot be included in a list and the user will be notified. If the homework
  * is correct, then the entry will be temporarily stored in the ArrayList. The entry will
  * be placed in its proper location in the ArrayList using a sorter method. Once the user
- * types "done", the program will convert the ArrayList into a csv file that will be
- * visible to the user inside the src file. After the csv file is created, the program
+ * types "done", the program will convert the ArrayList into a txt file that will be
+ * visible to the user inside the src file. After the txt file is created, the program
  * will tell the user the file's name and then print the goodbye message.
  * - Added feature: when user enters "peek", program will show the list to allow the user
  * to check if list appears as intended.
  *
  * @author Wonshin Kim
  *
- * @version November 26, 2026 (this is an MVP)
+ * @version November 27, 2026 (v 2.0)
  *
  */
 public class HomeworkSorter {
     public static void main(String[] args) {
         boolean done = false;
         String[] parts;         // will hold the two parts of each entry (name and date) (makes date parsing easier)
-        String hwName;
-        LocalDate hwDate;
         // used ArrayList because it is easier to add elements to than normal arrays
         ArrayList<String> entries = new ArrayList<>();
+        Scanner scan = new Scanner(System.in);      // Scanner used to receive input
         System.out.println("\nWelcome to Homework Sorter!");
         while (!done) {             // repeats until user types "done"
-            Scanner scan = new Scanner(System.in);      // Scanner used to receive input
             System.out.println("Enter a homework title (no spaces in title), a space," +
                     "  and a due date with format yyyy-mm-dd");
             System.out.println("Example: 'EnglishEssay 2026-03-30'");
-	    System.out.println("enter 'peek' to take a look at the list before you're done");
+	        System.out.println("enter 'peek' to take a look at the list before you're done");
             System.out.println("(or enter 'done' when you are done entering homework entries)\n");
             String input = scan.nextLine();
             if (input.equals("done")) {  // when done, loop ends and ArrayList is copied into csv file
                 done = true;
                 try {
-                    makeFile(entries, "HomeworkList.csv");  // method to convert list into file
+                    makeFile(entries, "HomeworkList.txt");  // method to convert list into file
                 } catch (IOException io) {  // if file conversion fails
                     System.out.println("error in creating file");
                 }
-                System.out.println("\nYour homework entries are in file: HomeworkList.csv");
+                System.out.println("\nYour homework entries are in file: HomeworkList.txt");
                 System.out.println("\nThank you for using Homework Sorter!");
             } else if (input.equals("peek")) {  // shows list
-		System.out.println("\nlist of homework entries:");
-		for (String en: entries) {
-		    System.out.println(en);
-		}
-		System.out.println("\n");	
-	    } else {
+                System.out.println("\nlist of homework entries:");
+                for (String en: entries) {
+                    System.out.println(en);
+                }
+                System.out.println("\n");
+            } else {
                 try {
                     parts = input.split(" ");  // splits entry into its parts
-                    hwName = parts[0];  // name should be the first part
-                    hwDate = LocalDate.parse(parts[1]);  // second part is converted to a date
+                    LocalDate.parse(parts[1]);  // second part is converted to a date
 
                     sorter(entries, input);         // method to add each entry in its proper place in ArrayList
-		    System.out.println("\n");
+                    System.out.print("\n");
 
                 } catch (DateTimeParseException d) {  // if time conversion fails:
                     System.out.println("\ninvalid input format (use a title with no spaces, a single space, " +
@@ -113,7 +110,7 @@ public class HomeworkSorter {
     }
 
     /**
-     * copies the ArrayList into a csv file
+     * copies the ArrayList into a txt file
      *
      * @param list the ArrayList to be copied
      * @param fileName the file will take on "fileName" as its name

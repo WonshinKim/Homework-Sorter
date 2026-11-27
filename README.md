@@ -17,9 +17,13 @@ for each homework entry. Each entry of input is added to an ArrayList (ArrayList
 imported). As each entry is added, it will be sorted into its proper place by its deadline 
 (custom-made method that puts more imminent deadlines above and later deadlines below) (also, 
 sorting by deadline dates required importing from java.time library). Once the loop has ended 
-(program is done receiving input), the sorted list will be written into a csv file (using a 
+(program is done receiving input), the sorted list will be written into a txt file (using a 
 custom-made file-writer method). 
 End of program.
+
+feature added: when user enters "peek", program will show user a preview of the sorted list without 
+putting it into a file, then continue running the loop.
+
 note: there are print statements used to make the program more user-friendly
 
 ![System diagram (works locally)](HomeworkSorter Diagram.drawio.png)
@@ -60,16 +64,11 @@ example run:
 Welcome to Homework Sorter!
 Enter a homework title (no spaces in title), a space, and a due date with format yyyy-mm-dd
 Example: 'EnglishEssay 2026-03-30'
+enter peek to take a look at the list before you're done
 (or enter 'done' when you are done entering homework entries)
 
 (input from keyboard) EnglishEssay 2026-12-16
 
-date conversion is a success!
-homework title: EnglishEssay
-date: 2026-12-16
-
-arraylist:
-EnglishEssay 2026-12-16
 
 (again asks for input)
 
@@ -137,12 +136,12 @@ Features you haven't built yet but plan to (pull these from your
 - [ ] Rewrite csv or txt file when changes are made
 - [ ] Enable MVP to clear out completed homework when asked to
 - [ ] Receive individual new entries for new homework assignments
-- [ ] Print entire contents of list when prompted
+- [X] Print entire contents of list when prompted
 
 
 ## Demo (Video)
 
-put video link here:
+video link here:
 
 
 ## Author
