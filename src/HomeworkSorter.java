@@ -30,11 +30,12 @@ import java.io.IOException;
  */
 public class HomeworkSorter {
     public static void main(String[] args) {
-        boolean done = false;       // determines whether user is done typing entries
-        String[] parts;             // will hold the two parts of each entry (name and date)
-        String hwName;              // stores the name of the homework
-        LocalDate hwDate;           // stores the date associated with the homework
-        ArrayList<String> entries = new ArrayList<>();      // creates a new ArrayList for entries
+        boolean done = false;
+        String[] parts;         // will hold the two parts of each entry (name and date) (makes date parsing easier)
+        String hwName;
+        LocalDate hwDate;
+        // used ArrayList because it is easier to add elements to than normal arrays
+        ArrayList<String> entries = new ArrayList<>();
         System.out.println("\nWelcome to Homework Sorter!");
         while (!done) {             // repeats until user types "done"
             Scanner scan = new Scanner(System.in);      // Scanner used to receive input
@@ -42,7 +43,7 @@ public class HomeworkSorter {
                     "  and a due date with format yyyy-mm-dd");
             System.out.println("Example: 'EnglishEssay 2026-03-30'");
             System.out.println("(or enter 'done' when you are done entering homework entries)\n");
-            String input = scan.nextLine();  // receives input after header lines
+            String input = scan.nextLine();
             if (input.equals("done")) {  // when done, loop ends and ArrayList is copied into csv file
                 done = true;
                 try {
@@ -56,7 +57,7 @@ public class HomeworkSorter {
                 try {
                     parts = input.split(" ");  // splits entry into its parts
                     hwName = parts[0];  // name should be the first part
-                    hwDate = LocalDate.parse(parts[1]);  // second part should be converted to a date
+                    hwDate = LocalDate.parse(parts[1]);  // second part is converted to a date
 
                     // lines 66-68, 71-77: these are to show if the program successfully processes
                     // the input. I wasn't originally planning to keep these, but these lines
@@ -109,12 +110,11 @@ public class HomeworkSorter {
             for (String entry : list) {
                 String[] pieces = entry.split(" ");
                 LocalDate entryDate = LocalDate.parse(pieces[1]);
-                // if new entry's date is after this one's date, then new entry belongs further down the list
                 if (newDate.isAfter(entryDate)) {
                     insertionIndex++;
                 }
             }
-            list.add(insertionIndex, newEntry);  // puts the new entry in the list at insertionIndex
+            list.add(insertionIndex, newEntry);
         }
     }
 

@@ -39,6 +39,8 @@ notes: your compiler will have to run Java 8 or more recent in order to use the 
 Step-by-step: how does someone who just cloned your repo get it
 running?
 
+(alternatively, you could transfer the cloned repo into Intellij and hit the run button to run it, unfortunately I cannot explain how because that is beyond my current skill level {I'm still learning how to use these tools} )
+
 ```bash
 git clone https://github.com/WonshinKim/Homework-Sorter
 cd Homework-Sorter
