@@ -12,23 +12,23 @@ and then sorting my list for deadlines and due dates has been a source of frustr
 ## How It Works
 
 First, the program runs a loop for receiving input so that, as long as the program is not 
-done receiving input, the program will continue to receive input for each homework entry.
-Next, the program continues to receive input ( via IO.readln() ) for each homework entry. 
-Each entry of input is added to an ArrayList (ArrayList will be imported).
-Once loop has ended (program is done receiving input), contents of ArrayList will be 
-sorted by deadlines (custom-made method that puts more imminent deadlines above and 
-later deadlines below). Finally, sorted list will be written into a csv or a txt file. 
-End of program (I guess this is how to say the program ends?).
+done receiving input, the program will continue to receive input (using imported Scanner) 
+for each homework entry. Each entry of input is added to an ArrayList (ArrayList will be 
+imported). As each entry is added, it will be sorted into its proper place by its deadline 
+(custom-made method that puts more imminent deadlines above and later deadlines below) (also, 
+sorting by deadline dates required importing from java.time library). Once the loop has ended 
+(program is done receiving input), the sorted list will be written into a csv file (using a 
+custom-made file-writer method). 
+End of program.
+note: there are print statements used to make the program more user-friendly
 
-(how to put diagram in here???)
-
-![System diagram]("")
+![System diagram](HomeworkSorter Diagram.drawio.png)
 
 ## Tech Stack
 
 - **Language:** Java
-- **Libraries:** java.util.ArrayList
-- **External tools:** not sure yet
+- **Libraries:** java.util.Scanner, java.util.ArrayList, java.time.LocalDate, java.time.format.DateTimeParseException, java.io.PrintWriter, java.io.FileOutputStream, java.io.IOException
+- **External tools:** none that I know of
 
 ## Setup
 
