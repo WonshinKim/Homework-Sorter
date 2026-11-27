@@ -24,6 +24,9 @@ import java.io.IOException;
  * will tell the user the file's name and then print the goodbye message.
  * - Added feature: when user enters "peek", program will show the list to allow the user
  * to check if list appears as intended.
+ * - Note: name can include any symbol and character (except a space),
+ * and a "label" can be included on a new entry after the date as long as it's separated by a space
+ * (example: HomeworkName 2027-05-09 ExtraLabel)
  *
  * @author Wonshin Kim
  *
@@ -40,7 +43,7 @@ public class HomeworkSorter {
         System.out.println("\nWelcome to Homework Sorter!");
         while (!done) {             // repeats until user types "done"
             System.out.println("Enter a homework title (no spaces in title), a space," +
-                    "  and a due date with format yyyy-mm-dd");
+                    " and a due date with format yyyy-mm-dd");
             System.out.println("Example: 'EnglishEssay 2026-03-30'");
 	        System.out.println("enter 'peek' to take a look at the list before you're done");
             System.out.println("(or enter 'done' when you are done entering homework entries)\n");
