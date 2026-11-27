@@ -28,6 +28,8 @@ note: there are print statements used to make the program more user-friendly
 
 ## Tech Stack
 
+notes: your compiler will have to run Java 8 or more recent in order to use the time libraries; also make sure your terminal can use git, java, and javac commands (instructions are meant for bash with Linux (Ubuntu) )
+
 - **Language:** Java
 - **Libraries:** java.util.Scanner, java.util.ArrayList, java.time.LocalDate, java.time.format.DateTimeParseException, java.io.PrintWriter, java.io.FileOutputStream, java.io.IOException
 - **External tools:** none that I know of
@@ -134,6 +136,11 @@ Features you haven't built yet but plan to (pull these from your
 - [ ] Enable MVP to clear out completed homework when asked to
 - [ ] Receive individual new entries for new homework assignments
 - [ ] Print entire contents of list when prompted
+
+
+## Demo (Video)
+
+put video link here:
 
 
 ## Author
