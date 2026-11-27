@@ -37,22 +37,91 @@ note: there are print statements used to make the program more user-friendly
 Step-by-step: how does someone who just cloned your repo get it
 running?
 
-(how to do this?)
-
 ```bash
 git clone https://github.com/WonshinKim/Homework-Sorter
-cd HomeWork-Sorter
-./install.sh   # or whatever
+cd Homework-Sorter
+cd src
+javac HomeworkSorter.java
 ```
 
 ## Usage
 
 How to actually run the thing, with examples.
 
-(How to write this?)
-
 ```bash
-./backup.sh ~/Documents
+java HomeworkSorter.java
+
+example run:
+
+Welcome to Homework Sorter!
+Enter a homework title (no spaces in title), a space, and a due date with format yyyy-mm-dd
+Example: 'EnglishEssay 2026-03-30'
+(or enter 'done' when you are done entering homework entries)
+
+(input from keyboard) EnglishEssay 2026-12-16
+
+date conversion is a success!
+homework title: EnglishEssay
+date: 2026-12-16
+
+arraylist:
+EnglishEssay 2026-12-16
+
+(again asks for input)
+
+(input) Essay2027-01-01
+
+make sure that there is a homework title and a date separated by a single space
+
+(asks for input)
+
+(input) (just an empty space is entered)
+
+please do not enter an empty line, type 'done' when you are done
+
+(asks for input)
+
+(input) MathHomework1  2027-02-09 (two spaces instead of one)
+
+invalid input format (use a title with no spaces, a single space, and a date with a yyyy-mm-dd format { ex. MathHomework1 2027-01-01} )
+
+(asks for input)
+
+Project1 2027-01-01
+
+(shows success)
+
+arraylist:
+EnglishEssay 2026-12-16
+Project1 2027-01-01
+
+(asks for input)
+
+MathHomework1 2026-12-20
+
+(shows success)
+
+arraylist:
+EnglishEssay 2026-12-16
+MathHomework1 2026-12-20
+Project1 2027-01-01
+
+(asks for input) 
+
+(input) done
+
+Your homework entries are in file: HomeworkList.csv
+
+Thank you for using Homework Sorter!
+(program ends)
+
+(now do this to see the file:)
+vim HomeworkList.csv
+
+(the file should show this:)
+EnglishEssay 2026-12-16
+MathHomework1 2026-12-20
+Project1 2027-01-01
 ```
 
 ## Roadmap
